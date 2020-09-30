@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Edit Item</title>
+</head>
+<body>
+
+<nav style="height: 74px;">
+    <div class="nav-wrapper" style="background-color: white">
+        <div class="container">
+            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="60"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a th:href="@{/auth/about}" style="color: #1D1D1D">About us</a></li>
+                <li><a th:href="@{/contactus}" style="color: #1D1D1D">Customer care</a></li>
+                <li><a th:href="@{/auth/login}" style="color: #1D1D1D">logout</a></li>
+                <!--                <li><a href="signin.html" style="color: #1D1D1D">Logout</a></li>-->
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 5rem; color: Blue; padding: 10px 20px 10px 20px">
+    <h4>EDIT RESTAURANT</h4>
+    <hr />
+    <div class="row">
+        <form class="col s12" style="margin-top: 2rem; color: white" method="post" th:action="@{/items/editItem}" th:object="${item}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="required" id="itemName" type="text" class="validate" th:field="*{itemName}">
+                    <label for="itemName" style="color: Blue">ITEM NAME</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="required" id="itemInfo" type="text" class="validate" th:field="*{itemInfo}">
+                    <label for="itemInfo" style="color: Blue">ITEM INFORMATION</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="required" id="itemPrice" type="text" class="validate" th:field="*{itemPrice}">
+                    <label for="itemPrice" style="color: Blue">ITEM PRICE</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="required" id="imageUrl"  type="text" class="validate" th:field="*{imageUrl}">
+                    <label for="imageUrl" style="color: #0000ff">Image Url</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="file" id="itemPhoto">
+                    <label for="progressBar">Downloading progress:</label>
+                    <progress id="progressBar" value="0" max="100"> 0% </progress>
+                    <button  id="uploadImage">Uplaod</button>
+                </div>
+            </div>
+
+            <button class="btn waves-effect waves-light pink accent-3" type="submit" name="action" style="background-color: #ef8533f8; float: right">Submit
+                <!--                <i class="material-icons right"></i>-->
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script> th:src="@{main.js}"</script>
+
+</body>
+</html>

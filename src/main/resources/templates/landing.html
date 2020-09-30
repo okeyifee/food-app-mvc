@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+
+    <title>Sign up</title>
+
+    <style>
+        .restaurant-name{
+            margin-top: 0;
+        }
+        .action-list{
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+
+        .card .card-action, .card .card-content{
+            padding: 6px;
+        }
+
+        .card{
+            border: none;
+        }
+
+        .notification {
+            /*background-color: #555;*/
+            color: white;
+            text-decoration: none;
+            /*padding: 15px 26px;*/
+            position: relative;
+            display: inline-block;
+            border-radius: 2px;
+            position: center;
+        }
+
+        .notification:hover {
+            background: red;
+        }
+
+        .notification .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            padding: 20px 18px;
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+        }
+
+        .search-container button:hover {
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .search-container {
+                float: none;
+            }
+        }
+
+        .search-container button {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        form.example button {
+            /*float: right;*/
+            width: 100px;
+            height: 66.7px;
+            padding: 10px;
+            /*padding-left: 100px;*/
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<nav style="height: 70px;">
+    <div class="nav-wrapper">
+        <div class="container">
+            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="65"></a>
+            <ul>
+                <li><a href="collapsible.html">Search restaurants</a></li>
+                <li style="padding-right: 50px; float: right"><a href="/auth/login">logout</a></li>
+
+                <li style="padding-right: 50px; float: right"><a th:href="@{/cart}"  class="notification">
+                    <span>Cart</span>
+                    <span class="badge">3</span>
+                </a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" >About us</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" >Customer care</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!--    <form class="example" href="#" style="margin:auto;max-width:800px">-->
+<!--        <input type="text" placeholder="Search Restaurants.." name="search2">-->
+<!--        <button type="submit"><i class="fa fa-search"></i></button>-->
+<!--    </form>-->
+
+
+<div class="container-fluid" style="margin-top: 2rem">
+
+    <div class="row" style="margin: 0">
+<!--        <div>-->
+        <div th:each="item : ${items}">
+
+            <div class="col s12 m6 l3">
+                <div class="card" style="min-height: 300px;">
+                    <div class="card-content dark-text">
+                        <p > <img th:src="${item.imageUrl}" style="max-width: 100%; "/></p>
+                        <p th:text="${item.itemName}"></p>
+                        <p th:text="${item.itemInfo}"></p>
+                        <p th:text="${item.itemPrice}"></p>
+                    </div>
+                    <div class="card-action">
+                        <p class="restaurant-name" th:text="${item.restaurant.name}"></p>
+                        <div class="action-list" id="nav-mobile">
+                            <p><a th:href="@{/cart/add/{id}(id=${item.id})}" >Add to cart</a></p>
+                            <p><a th:href="@{/contactus}" >Review item</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

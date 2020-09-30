@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+
+
+    <title>Register Restaurant</title>
+
+</head>
+<body>
+<nav style="height: 74px;">
+    <div class="nav-wrapper" style="background-color: white">
+        <div class="container">
+            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="60"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a th:href="@{/auth/about}" style="color: #1D1D1D">About us</a></li>
+                <li><a th:href="@{/contactus}" style="color: #1D1D1D">Customer care</a></li>
+                <li><a th:href="@{/auth/login}" style="color: #1D1D1D">logout</a></li>
+                <!--                <li><a href="signin.html" style="color: #1D1D1D">Logout</a></li>-->
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="container" style="margin-top: 5rem; color: Blue; padding: 10px 20px 10px 20px">
+    <h4>REGISTER RESTAURANT</h4>
+    <hr />
+    <div class="row">
+        <form class="col s12" style="margin-top: 2rem; color: white" method="post" th:action="@{/restaurant/addrestaurant}" th:object="${restaurant}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="required" id="name" type="text" class="validate" th:field="*{name}" maxlength="30">
+                    <label for="name" style="color: Blue">RESTAURANT NAME</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="required" id="description" type="text" class="validate" th:field="*{description}" maxlength="50">
+                    <label for="description" style="color: Blue">RESTAURANT DESCRIPTION</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="required" id="address" type="text" class="validate" th:field="*{address}" maxlength="50">
+                    <label for="address" style="color: Blue">RESTAURANT ADDRESS</label>
+                </div>
+            </div>
+
+
+            <button class="btn waves-effect waves-light pink accent-3" type="submit" name="action" style="background-color: #ef8533f8; float: right">Register
+                <!--                <i class="material-icons right"></i>-->
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script> th:src="@{main.js}"</script>
+</body>
+</html>

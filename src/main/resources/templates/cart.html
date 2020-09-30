@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Title</title>
+</head>
+<body>
+
+<nav style="height: 74px;">
+    <div class="nav-wrapper" >
+        <div  style="margin: 0; padding: 10px 0px 10px 20px" >
+            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="50"></a>
+            <ul>
+                <!--                <li style="padding-left: 20px"><a href="#">Welcome, Admin </a></li>-->
+                <li style="padding-right: 50px; float: right"><a href="/auth/login">logout</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" >About us</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" >Customer care</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<h3></h3>
+
+
+<tr th:each="user: ${users}">
+    <th:blockquote>
+        <p th:text="${'Welcome to your Cart,' + ' ' + user.fullName }" style="margin-left: 23px"></p>
+    </th:blockquote>
+</tr>
+
+<table id="CART INFORMATION"  style="margin-left: 23px">
+    <tr>
+        <th> ITEM NAME</th>
+        <th> QUANTITY ORDERED </th>
+        <th> UNIT PRICE </th>
+        <th> SUBTOTAL </th>
+    </tr>
+
+    <tr th:each="cart: ${carts}">
+        <td th:text="${cart.itemname}"></td>
+        <td th:text="${cart.quantity}"></td>
+        <td th:text="${cart.itemPrice}"></td>
+        <td th:text="${cart.itemPrice * cart.quantity}"></td>
+        <td><a th:href="@{/cart/remove/{id}(id=${cart.id})}">Remove from cart</a></td>
+    </tr>
+
+
+</table>
+<br>
+<div>
+    <button style="margin: 0 30px 0 30px"> <a th:href="@{/cart/clear}">Clear cart</a></button>
+    <button style="margin: 0 30px 0 30px"> <a th:href="@{/auth/display}">CONTINUE SHOPPING</a></button>
+    <button style="margin: 0 30px 0 30px"> <a th:href="@{/cart/checkout} ">PROCEED TO CHECKOUT</a></button>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Title</title>
+</head>
+<body>
+
+<nav style="height: 74px;">
+    <div class="nav-wrapper" >
+        <div  style="margin: 0; padding: 10px 0px 10px 20px" >
+            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="50"></a>
+            <ul>
+                <!--                <li style="padding-left: 20px"><a href="#">Welcome, Admin </a></li>-->
+                <li style="padding-right: 50px; float: right"><a href="/auth/login">logout</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" >About us</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" >Customer care</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<h3></h3>
+<div>
+    <button style="margin: 0 30px 0 30px"> <a th:href="@{/restaurant/addrestaurant}">Click To Add New Restaurant </a></button>
+        <button> <a th:href="@{/items/}" >Click To View Item(s) In Each Restaurant</a></button>
+</div>
+
+
+<h3>ACTIVE RESTAURANTS IN DATABASE</h3>
+<table id="RESTAURANT INFORMATION">
+    <tr>
+        <th> RESTAURANT'S NAME</th>
+        <th> DESCRIPTION </th>
+        <th> ADDRESS </th>
+    </tr>
+
+    <tr th:each="restaurant: ${restaurants}">
+        <td th:text="${restaurant.name}"></td>
+        <td th:text="${restaurant.description}"></td>
+        <td th:text="${restaurant.address}"></td>
+        <td>
+            <a th:href="@{/items/additem/{id}(id=${restaurant.id})}" >Add Item(s)</a>
+        </td>
+        <td><a th:href="@{/restaurant/edit/{id}(id=${restaurant.id})}">Edit</a></td>
+        <td><a th:href="@{/restaurant/delete/{id}(id=${restaurant.id})}">Delete</a></td>
+
+    </tr>
+</table>
+</body>
+</html>
+

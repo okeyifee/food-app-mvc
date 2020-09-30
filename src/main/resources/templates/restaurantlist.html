@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Title</title>
+</head>
+<body>
+
+<nav style="height: 74px;">
+    <div class="nav-wrapper" >
+        <div  style="margin: 0; padding: 10px 0px 10px 20px" >
+            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="50"></a>
+            <ul>
+                <!--                <li style="padding-left: 20px"><a href="#">Welcome, Admin </a></li>-->
+                <li style="padding-right: 50px; float: right"><a href="/auth/login">logout</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" >About us</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" >Customer care</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<h3></h3>
+<a th:href="@{/restaurant/addrestaurant}">Click To Add New Restaurant </a>
+
+
+<h3>SELECT A RESTAURANT FROM THE LIST BELOW TO ADD A NEW ITEM TO THE MENU </h3>
+<table id="RESTAURANT INFORMATION">
+    <tr>
+        <th> RESTAURANT'S NAME</th>
+    </tr>
+
+    <tr th:each="restaurant: ${restaurants}">
+        <td th:text="${restaurant.name}"></td>
+<!--        <td><a th:href="@{/restaurant/edit/{id}(id=${restaurant.id})}">Edit</a></td>-->
+<!--        <td><a th:href="@{/restaurant/delete/{id}(id=${restaurant.id})}">Delete</a></td>-->
+    </tr>
+</table>
+</body>
+</html>
