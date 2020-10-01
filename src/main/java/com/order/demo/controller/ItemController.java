@@ -5,22 +5,28 @@ import com.order.demo.model.Restaurant;
 import com.order.demo.model.User;
 import com.order.demo.service.ItemService;
 import com.order.demo.service.RestaurantService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.Optional;
 
 
 @Controller
 @RequestMapping("/items")
 public class ItemController{
 
-        ItemService itemService;
-        RestaurantService restaurantService;
+    private final ItemService itemService;
 
+    private final  RestaurantService restaurantService;
+
+    @Autowired
     public ItemController(ItemService itemService, RestaurantService restaurantService) {
         this.itemService = itemService;
         this.restaurantService = restaurantService;
@@ -45,7 +51,7 @@ public class ItemController{
     }
 
     @GetMapping("/additem/{id}")
-    public String addItem(@PathVariable ("id") long id,Model model, HttpSession session) {
+    public String addItem(@PathVariable("id") long id, Model model, HttpSession session) {
         session.setAttribute("id", id);
         model.addAttribute("item", new Item());
         return "addItem";
@@ -53,8 +59,7 @@ public class ItemController{
 
 
     @PostMapping("/additem")
-    public String addItem( @Valid Item item, HttpSession session) {
-        System.out.println("hello...........");
+    public String addItem(@Valid Item item, HttpSession session) {
         User user = (User) session.getAttribute("user");
         if (user == null) {
             return "redirect:/auth/signin";
@@ -62,10 +67,10 @@ public class ItemController{
         Long id = (Long) session.getAttribute("id");
         Restaurant restaurant = restaurantService.findRestaurantById(id);
         item.setRestaurant(restaurant);
-        String name =  item.getItemName();
-        String info =  item.getItemInfo();
-        double price =  item.getItemPrice();
-        Item newItem =  new Item();
+        String name = item.getItemName();
+        String info = item.getItemInfo();
+        double price = item.getItemPrice();
+        Item newItem = new Item();
 
         newItem.setId(0);
         newItem.setItemInfo(info);
@@ -77,28 +82,31 @@ public class ItemController{
         return "redirect:/items/";
     }
 
+    //public ResponseEntity<>
+
 
     @GetMapping("/new")
+
     public String showItem(HttpSession session, @Valid Item item) {
         Object userObj = session.getAttribute("user");
         return "restaurant";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteItem(@PathVariable("id") long id){
+    public String deleteItem(@PathVariable("id") long id) {
         itemService.deleteItemById(id);
         return "redirect:/items/";
     }
 
     @GetMapping("/edit/{id}")
-    public String editItems(@PathVariable ("id") long id, Model model){
+    public String editItems(@PathVariable("id") long id, Model model) {
         model.addAttribute("item", itemService.findItemById(id));
         itemService.deleteItemById(id);
         return "editItem";
     }
 
     @PostMapping("/editItem")
-    public String editItem( Item item) {
+    public String editItem(Item item) {
         itemService.save(item);
         return "redirect:/items/";
     }

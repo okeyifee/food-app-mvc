@@ -1,34 +1,30 @@
 package com.order.demo.controller;
 
-import com.order.demo.model.Restaurant;
+import com.order.demo.dto.UserResponse;
 import com.order.demo.model.User;
-import com.order.demo.service.RestaurantService;
 import com.order.demo.service.UserService;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
-@Controller
+@RestController
 public class UserController{
 
-    UserService userService;
+    private final UserService userService;
 
-    public UserController(UserService userService) { this.userService = userService; }
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
-    @GetMapping("/user")
-    public String getUsers(Model model, HttpSession session) {
-        Object userObj = session.getAttribute("user");
-        if (userObj == null) return "redirect:/auth/login";
-        model.addAttribute("user", (User) userObj);
-        model.addAttribute("users", userService.getUsers());
-        model.addAttribute("newuser", new User());
-        return "user";
+    @GetMapping("user")
+    public ResponseEntity<List<UserResponse>> getUsers() {
+        List<UserResponse> users = userService.getUsers();
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     @GetMapping("/new")
@@ -39,18 +35,32 @@ public class UserController{
         return "user";
     }
 
-    @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") long id){
-        userService.deleteUserById(id);
-        return "redirect:/user";
+
+    @GetMapping("delete/{id}")
+    public ResponseEntity<User> deleteUser(@PathVariable("id") long id) {
+        User user = userService.getUser(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/edit/{id}")
-    public String editUsers(@PathVariable ("id") long id, Model model){
-        model.addAttribute("user", userService.getUser(id));
-        userService.deleteUserById(id);
-        return "editUser";
+
+
+
+//
+//    @GetMapping("/edit/{id}")
+//    public String editUsers(@PathVariable("id") long id, Model model) {
+//        model.addAttribute("user", userService.getUser(id));
+//        userService.deleteUserById(id);
+//        return "editUser";
+//    }
+
+    @GetMapping("edit/{id}")
+    public ResponseEntity<User> editUsers(@PathVariable("id") long id) {
+        User user = userService.getUser(id);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+// i am supposed to redirect to another page
     }
+
+
 
     @PostMapping("/editUser")
     public String editUser(User user) {
@@ -58,8 +68,18 @@ public class UserController{
         return "redirect:/user";
     }
 
-    @RequestMapping("/view")
-    public String viewUsers() {
-        return "user";
+
+    @RequestMapping("user")
+    public ResponseEntity<List<UserResponse>> viewUsers() {
+//    public String viewUsers() {
+        return new ResponseEntity<>(HttpStatus.OK);//"user";
     }
+
+//    @GetMapping("user")
+//    public ResponseEntity<List<UserResponse>> getUsers() {
+//        List<UserResponse> users = userService.getUsers();
+//        return new ResponseEntity<>(users, HttpStatus.OK);
+//    }
+
+
 }

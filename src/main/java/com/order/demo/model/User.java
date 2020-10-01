@@ -1,10 +1,8 @@
 package com.order.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.order.demo.util.Type;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,7 +12,6 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "users")
-
 public class User{
 
     @Id
@@ -27,16 +24,19 @@ public class User{
     private String address;
     private Type App_User_Type;
 
-
-    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     List<Restaurant> restaurants = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Item> items = new ArrayList<>();
 
+    @JsonIgnore
     @OneToOne
     private Cart cart;
 
