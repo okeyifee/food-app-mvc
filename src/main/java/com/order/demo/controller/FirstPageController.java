@@ -23,26 +23,26 @@ public class FirstPageController{
         this.contactUsService = contactUsService;
     }
 
-        @GetMapping("/")
-        public String firstpage() {
-            return "firstpage";
-        }
-
-        @GetMapping("/contactus")
-        public String contactus(Model model) {
-            model.addAttribute("contactus", new ContactUs());
-            return "contactus";
-        }
-
-        @PostMapping("/contactus")
-        public String contactus(HttpSession session, @Valid ContactUs contactUs) {
-            Object userObj = session.getAttribute("user");
-            contactUsService.createContact(contactUs);
-            if (userObj == null){
-                return "redirect:/auth/login";
-            }
-                return "redirect:/contactus";
-        }
-
+    @GetMapping("/")
+    public String firstpage() {
+        return "firstpage";
     }
+
+    @GetMapping("/contactus")
+    public String contactus(Model model) {
+        model.addAttribute("contactus", new ContactUs());
+        return "contactus";
+    }
+
+    @PostMapping("/contactus")
+    public String contactus(HttpSession session, @Valid ContactUs contactUs) {
+        Object userObj = session.getAttribute("user");
+        contactUsService.createContact(contactUs);
+        if (userObj == null) {
+            return "redirect:/auth/login";
+        }
+        return "redirect:/contactus";
+    }
+
+}
 

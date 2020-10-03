@@ -75,27 +75,6 @@ public class RestaurantServiceImpl implements RestaurantService{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //   Future improvement on the App to use user location and search nearest restaurant from map
 //
 //    @Override

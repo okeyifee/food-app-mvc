@@ -8,14 +8,16 @@
 <body>
 
 <nav style="height: 74px;">
-    <div class="nav-wrapper" >
-        <div  style="margin: 0; padding: 10px 0px 10px 20px" >
-            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="50"></a>
+    <div class="nav-wrapper">
+        <div style="margin: 0; padding: 10px 0px 10px 20px">
+            <a href="#" class="brand-logo"><img th:src="@{/productImages/logo.png}" height="50"></a>
             <ul>
                 <!--                <li style="padding-left: 20px"><a href="#">Welcome, Admin </a></li>-->
                 <li style="padding-right: 50px; float: right"><a href="/auth/login" style="color: black">logout</a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" style="color: #1D1D1D">About us</a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" style="color: #1D1D1D">Customer care</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" style="color: #1D1D1D">About
+                    us</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" style="color: #1D1D1D">Customer
+                    care</a></li>
 
             </ul>
         </div>
@@ -26,13 +28,12 @@
 <tr></tr>
 
 
-
 <h3>ACTIVE USERS IN DATABASE</h3>
 <table id="USER INFORMATION">
     <tr>
         <th> USER'S NAME</th>
-        <th> EMAIL </th>
-        <th> ADDRESS </th>
+        <th> EMAIL</th>
+        <th> ADDRESS</th>
         <th> USER TYPE</th>
     </tr>
 

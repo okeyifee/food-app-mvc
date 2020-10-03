@@ -85,8 +85,8 @@ public class OrderController{
             System.out.println(newOrder.getTotal());
             orderService.addOrder(newOrder);
         }
-         toTal = 0;
-         sum = 0;
+        toTal = 0;
+        sum = 0;
         cartService.clearItems();
         return "orderpage";
     }

@@ -8,14 +8,14 @@
 <body>
 
 <nav style="height: 74px;">
-    <div class="nav-wrapper" >
-        <div  style="margin: 0; padding: 10px 0px 10px 20px" >
-            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="50"></a>
+    <div class="nav-wrapper">
+        <div style="margin: 0; padding: 10px 0px 10px 20px">
+            <a href="#" class="brand-logo"><img th:src="@{/productImages/logo.png}" height="50"></a>
             <ul>
                 <!--                <li style="padding-left: 20px"><a href="#">Welcome, Admin </a></li>-->
                 <li style="padding-right: 50px; float: right"><a href="/auth/login">logout</a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" >About us</a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" >Customer care</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}">About us</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}">Customer care</a></li>
 
             </ul>
         </div>
@@ -34,8 +34,8 @@
 
     <tr th:each="restaurant: ${restaurants}">
         <td th:text="${restaurant.name}"></td>
-<!--        <td><a th:href="@{/restaurant/edit/{id}(id=${restaurant.id})}">Edit</a></td>-->
-<!--        <td><a th:href="@{/restaurant/delete/{id}(id=${restaurant.id})}">Delete</a></td>-->
+        <!--        <td><a th:href="@{/restaurant/edit/{id}(id=${restaurant.id})}">Edit</a></td>-->
+        <!--        <td><a th:href="@{/restaurant/delete/{id}(id=${restaurant.id})}">Delete</a></td>-->
     </tr>
 </table>
 </body>

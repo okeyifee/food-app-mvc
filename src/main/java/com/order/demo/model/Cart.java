@@ -21,7 +21,7 @@ public class Cart{
     private String itemname;
     protected Long itemid;
     private Integer quantity;
-    private  double itemPrice;
+    private double itemPrice;
     private int count;
 
     @OneToOne

@@ -1,0 +1,652 @@
+body {
+    font-family: Roboto, Arial, sans-serif;
+    background: #f2f2f2;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+* {
+    color: #1D1D1D
+}
+
+a {
+    text-decoration: none
+}
+
+.container {
+    width: 350px;
+    margin: 0 auto
+}
+
+.desktop-only,
+.header__basket {
+    display: none
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-right: -8px
+}
+
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12 {
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+.col-xs-1 {
+    flex-basis: 8.3333%
+}
+
+.col-xs-2 {
+    flex-basis: 16.6667%
+}
+
+.col-xs-3 {
+    flex-basis: 24.9999%
+}
+
+.col-xs-4 {
+    flex-basis: 33.3334%
+}
+
+.col-xs-5 {
+    flex-basis: 41.6665%
+}
+
+.col-xs-6 {
+    flex-basis: 49.9998%
+}
+
+.col-xs-7 {
+    flex-basis: 58.3331%
+}
+
+.col-xs-8 {
+    flex-basis: 66.6664%
+}
+
+.col-xs-9 {
+    flex-basis: 74.9997%
+}
+
+.col-xs-10 {
+    flex-basis: 83.3333%
+}
+
+.col-xs-11 {
+    flex-basis: 91.6663%
+}
+
+.col-xs-12 {
+    flex-basis: 100%
+}
+
+.header {
+    background: #fff
+}
+
+.logo {
+    padding: 31px 0
+}
+
+.header__auth {
+    float: right;
+    padding: 15px 0
+}
+
+.header__auth a {
+    display: inline-block
+}
+
+.header__login-btn {
+    background: transparent
+}
+
+.header__register-btn {
+    background: #262626;
+    border: none;
+    color: #fff
+}
+
+.header__login-btn,
+.header__register-btn,
+.when-btn,
+.to-btn {
+    margin-top: 7px;
+    border-radius: 2px;
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    display: inline-block
+}
+
+.search_input {
+    color: #626262;
+    border: none;
+    outline: none;
+    padding: 15px 0px;
+    background: transparent;
+    width: 80%
+}
+
+.search__form {
+    border-bottom: 1px solid #757575;
+    margin: 24px 0
+}
+
+.icon {
+    /* Назвал icon, потому что этот класс управляет двумя разными иконками (так вышло :/) */
+    position: relative;
+    top: 3px;
+    padding-right: 8px
+}
+
+.search__whento span {
+    color: #626262
+}
+
+.search__whento span:nth-child(2) {
+    margin-left: 45px
+}
+
+.when-btn {
+    width: 55px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.to-btn {
+    width: 227px;
+}
+
+.restaurants {
+    margin-top: 40px
+}
+
+.restaurants__heading {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin: 0
+}
+
+.restaurants__item {
+    margin-bottom: 36px
+}
+
+.restaurants__img {
+    width: 100%;
+    height: 248px;
+    padding: 10px 0
+}
+
+.restaurants__item p,
+.restaurants__item span {
+    padding-bottom: 4px;
+    margin: 0
+}
+
+.restaurants__name {
+    font-size: 1.1em;
+    font-weight: 500
+}
+
+.footer {
+    background: #262626
+}
+
+.footer * {
+    color: #fff
+}
+
+.logo_white {
+    padding: 56px 0 40px 0
+}
+
+.footer__hr {
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.4
+}
+
+.footer__language {
+    margin: 32px 0
+}
+
+.footer__language select {
+    background: #3B3B3B;
+    border: none;
+    text-transform: uppercase;
+    padding: 12px 55px 12px 16px;
+    outline: none
+}
+
+.footer__hashtag-text {
+    font-size: 1.2em
+}
+
+.footer__sm a {
+    padding-right: 12px
+}
+
+.footer__sm a img {
+    width: 35px
+}
+
+.footer__nav {
+    margin-top: 40px
+}
+
+.footer__nav a,
+.footer__copyright-nav a,
+.footer__copyright-nav p {
+    display: block;
+    margin-top: 25px
+}
+
+.footer__apps {
+    margin-top: 25px
+}
+
+.footer__apps-btns {
+    padding: 20px 0;
+    text-align: center
+}
+
+.appstore-btn {
+    padding-right: 20px
+}
+
+.googleplay-btn {
+    padding-left: 20px
+}
+
+.up-btn {
+    position: fixed;
+    right: 16px;
+    bottom: 24px
+}
+
+.up-btn img {
+    vertical-align: middle;
+    background-color: #59BD5A;
+    padding: 28px 32px
+}
+
+
+/* restaurant page */
+
+.restaurant {
+    background: url('../images/pushkinwp.png') no-repeat center/cover;
+    height: 255px
+}
+
+.restaurant-card {
+    position: relative;
+    top: 100px;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    overflow: hidden;
+}
+
+.restaurant-card__name {
+    font-weight: 500;
+    padding-bottom: 40px;
+    font-size: 1.5em
+}
+
+.restaurant-card span {
+    font-size: 0.9em
+}
+
+.restaurant-card__delivery-time {
+    display: block;
+    background: #262626;
+    padding: 9px 16px;
+    border-radius: 16px;
+    color: #fff;
+    margin: 0 auto;
+    margin-top: 16px;
+    width: 100px
+}
+
+.food-nav {
+    background: #fff;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 32px;
+    display: none;
+}
+
+.food-nav a {
+    font-size: 1.18em;
+    margin-right: 40px
+}
+
+.food-nav__item_active {
+    color: #327430
+}
+
+.foods-list {
+    margin: 56px 0
+}
+
+.foods-list p {
+    margin: 0
+}
+
+.foods-list__type {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 400;
+}
+
+.foods-list__type__line {
+    width: 50px
+}
+
+.foods-list__item {
+    overflow: hidden;
+    padding: 16px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.foods-list__item-active {
+    background: #ededed
+}
+
+.foods-list__name {
+    font-weight: 500;
+    padding-bottom: 4px
+}
+
+.foods-list__description {
+    color: #626262;
+    padding-bottom: 16px
+}
+
+.foods-list__price {
+    font-weight: 600
+}
+
+.foods-list__info {
+    float: left
+}
+
+.foods-list__info p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px
+}
+
+.foods-list__img {
+    float: right;
+    width: 102px;
+    border-radius: 2px
+}
+
+@media (min-width: 854px) {
+    .col-md-1,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12 {
+        padding: 0 8px;
+        box-sizing: border-box
+    }
+
+    .col-md-1 {
+        flex-basis: 8.3333%
+    }
+
+    .col-md-2 {
+        flex-basis: 16.6667%
+    }
+
+    .col-md-3 {
+        flex-basis: 24.9999%
+    }
+
+    .col-md-4 {
+        flex-basis: 33.3334%
+    }
+
+    .col-md-5 {
+        flex-basis: 41.6665%
+    }
+
+    .col-md-6 {
+        flex-basis: 49.9998%
+    }
+
+    .col-md-7 {
+        flex-basis: 58.3331%
+    }
+
+    .col-md-8 {
+        flex-basis: 66.6664%
+    }
+
+    .col-md-9 {
+        flex-basis: 74.9997%
+    }
+
+    .col-md-10 {
+        flex-basis: 83.3333%
+    }
+
+    .col-md-11 {
+        flex-basis: 91.6663%
+    }
+
+    .col-md-12 {
+        flex-basis: 100%
+    }
+
+    .container {
+        width: 800px
+    }
+
+    .mobile-only {
+        display: none
+    }
+
+    .desktop-only {
+        display: none
+    }
+
+    .tablet-only,
+    .header__basket {
+        display: block
+    }
+
+    .to-btn {
+        width: 215px
+    }
+
+    .options {
+        padding: 15px 0
+    }
+
+    .header__basket {
+        padding: 0 16px;
+        position: relative;
+        top: 5px
+    }
+
+    /* restaurant page */
+    .restaurant {
+        height: 364px;
+    }
+
+    .restaurant-card {
+        top: 80px;
+        text-align: left;
+        padding: 38px 48px 48px;
+    }
+
+    .restaurant-card__name {
+        font-size: 2.3em;
+        font-weight: 400
+    }
+
+    .restaurant-card__delivery-time {
+        display: inline;
+        text-align: center
+    }
+
+    .restaurant-card__info {
+        float: left
+    }
+
+    .restaurant-card__delivery {
+        float: right
+    }
+
+    .food-nav {
+        display: block
+    }
+
+    .foods-list__type {
+        text-align: left
+    }
+
+    .foods-list__item {
+        border: 1px solid #e0e0e0;
+        padding: 0;
+        margin-bottom: 32px
+    }
+
+    .foods-list__img {
+        width: 200px
+    }
+
+    .foods-list__info {
+        margin: 0;
+        padding: 16px 0
+    }
+
+    .foods-list__info p {
+        max-width: 500px;
+        padding-left: 24px
+    }
+
+    .foods-list__name {
+        font-size: 1.1em
+    }
+
+    .foods-list__description {
+        padding-bottom: 80px
+    }
+}
+
+@media (min-width: 1176px) {
+    .col-lg-1,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12 {
+        padding: 0 8px;
+        box-sizing: border-box
+    }
+
+    .col-lg-1 {
+        flex-basis: 8.3333%
+    }
+
+    .col-lg-2 {
+        flex-basis: 16.6667%
+    }
+
+    .col-lg-3 {
+        flex-basis: 24.9999%
+    }
+
+    .col-lg-4 {
+        flex-basis: 33.3334%
+    }
+
+    .col-lg-5 {
+        flex-basis: 41.6665%
+    }
+
+    .col-lg-6 {
+        flex-basis: 49.9998%
+    }
+
+    .col-lg-7 {
+        flex-basis: 58.3331%
+    }
+
+    .col-lg-8 {
+        flex-basis: 66.6664%
+    }
+
+    .col-lg-9 {
+        flex-basis: 74.9997%
+    }
+
+    .col-lg-10 {
+        flex-basis: 83.3333%
+    }
+
+    .col-lg-11 {
+        flex-basis: 91.6663%
+    }
+
+    .col-lg-12 {
+        flex-basis: 100%
+    }
+
+    .container {
+        width: 964px
+    }
+
+    .footer__language select {
+        width: 75%
+    }
+
+    /* restaurant page */
+    .foods-list__info p {
+        max-width: 240px;
+        padding-left: 16px
+    }
+
+    .foods-list__img {
+        width: 170px
+    }
+
+    .foods-list__description {
+        padding-bottom: 51px
+    }
+}

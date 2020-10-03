@@ -8,14 +8,14 @@
 <body>
 
 <nav style="height: 74px;">
-    <div class="nav-wrapper" >
-        <div  style="margin: 0; padding: 10px 0px 10px 20px" >
-            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="50"></a>
+    <div class="nav-wrapper">
+        <div style="margin: 0; padding: 10px 0px 10px 20px">
+            <a href="#" class="brand-logo"><img th:src="@{/productImages/logo.png}" height="50"></a>
             <ul>
                 <!--                <li style="padding-left: 20px"><a href="#">Welcome, Admin </a></li>-->
                 <li style="padding-right: 50px; float: right"><a href="/auth/login">logout</a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" >About us</a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" >Customer care</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}">About us</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}">Customer care</a></li>
 
             </ul>
         </div>
@@ -25,8 +25,9 @@
 
 <h3></h3>
 <div>
-    <button style="margin: 0 30px 0 30px"> <a th:href="@{/restaurant/addrestaurant}">Click To Add New Restaurant </a></button>
-        <button> <a th:href="@{/items/}" >Click To View Item(s) In Each Restaurant</a></button>
+    <button style="margin: 0 30px 0 30px"><a th:href="@{/restaurant/addrestaurant}">Click To Add New Restaurant </a>
+    </button>
+    <button><a th:href="@{/items/}">Click To View Item(s) In Each Restaurant</a></button>
 </div>
 
 
@@ -34,8 +35,8 @@
 <table id="RESTAURANT INFORMATION">
     <tr>
         <th> RESTAURANT'S NAME</th>
-        <th> DESCRIPTION </th>
-        <th> ADDRESS </th>
+        <th> DESCRIPTION</th>
+        <th> ADDRESS</th>
     </tr>
 
     <tr th:each="restaurant: ${restaurants}">
@@ -43,7 +44,7 @@
         <td th:text="${restaurant.description}"></td>
         <td th:text="${restaurant.address}"></td>
         <td>
-            <a th:href="@{/items/additem/{id}(id=${restaurant.id})}" >Add Item(s)</a>
+            <a th:href="@{/items/additem/{id}(id=${restaurant.id})}">Add Item(s)</a>
         </td>
         <td><a th:href="@{/restaurant/edit/{id}(id=${restaurant.id})}">Edit</a></td>
         <td><a th:href="@{/restaurant/delete/{id}(id=${restaurant.id})}">Delete</a></td>

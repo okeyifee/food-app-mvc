@@ -69,7 +69,9 @@
     <h2>Welcome To Jumia Food</h2>
     <tr>
         <td>Leave a message for our customer care team</td>
-        <td><button style="float: right"><a th:href="@{/}" style="color: black; float: right">Home</a></button></td>
+        <td>
+            <button style="float: right"><a th:href="@{/}" style="color: black; float: right">Home</a></button>
+        </td>
     </tr>
 
 </div>
@@ -103,7 +105,8 @@
                 <input type="text" id="address" th:field="*{address}" placeholder="Your Address..">
 
                 <label for="message">Message</label>
-                <textarea id="message" th:field="*{message}" placeholder="Write something.." style="height:170px"></textarea>
+                <textarea id="message" th:field="*{message}" placeholder="Write something.."
+                          style="height:170px"></textarea>
                 <input type="submit" value="Submit">
             </form>
         </div>

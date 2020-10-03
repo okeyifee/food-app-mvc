@@ -19,11 +19,11 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-public class CartController {
+public class CartController{
     private static final Logger logger = (Logger) LoggerFactory.getLogger(CartController.class);
 
-     CartService cartService;
-     ItemService itemService;
+    CartService cartService;
+    ItemService itemService;
 
 
     @Autowired
@@ -33,7 +33,7 @@ public class CartController {
     }
 
     @GetMapping("/cart")
-    public String cart(Model model, HttpSession session){
+    public String cart(Model model, HttpSession session) {
         Object userObj = session.getAttribute("user");
         if (userObj == null) return "redirect:/auth/login";
         model.addAttribute("users", (User) userObj);
@@ -42,30 +42,30 @@ public class CartController {
     }
 
     @GetMapping("/cart/add/{id}")
-    public String addItemToCart(@PathVariable("id") long id, HttpSession session){
+    public String addItemToCart(@PathVariable("id") long id, HttpSession session) {
         User user2 = (User) session.getAttribute("user");
         if (user2 == null) return "redirect:/auth/login";
 
 //      Assigns the item properties to a variable
         Item check = itemService.findItemById(id);
 
-            String name =  check.getItemName();
-            double amount =  check.getItemPrice();
-            Long itemid = id;
-            int quantity = 1;
-            int count = 1;
+        String name = check.getItemName();
+        double amount = check.getItemPrice();
+        Long itemid = id;
+        int quantity = 1;
+        int count = 1;
 
-            Cart newCart = new Cart();
+        Cart newCart = new Cart();
 
-            newCart.setItemid(itemid);
-            newCart.setQuantity(quantity);
-            newCart.setItemname(name);
-            newCart.setItemPrice(amount);
-            newCart.setCount(count);
+        newCart.setItemid(itemid);
+        newCart.setQuantity(quantity);
+        newCart.setItemname(name);
+        newCart.setItemPrice(amount);
+        newCart.setCount(count);
 
         Cart check2 = cartService.findCartByItemid(id);
 
-        if (check2 == null){
+        if (check2 == null) {
             int newCount = count + 1;
             newCart.setCount(newCount);
             cartService.addItem(newCart);
@@ -79,24 +79,24 @@ public class CartController {
     }
 
     @GetMapping("/cart/remove/{id}")
-    public String removeItemFromCart(@PathVariable("id") long id){
+    public String removeItemFromCart(@PathVariable("id") long id) {
         cartService.deleteItemByCartId(id);
         return "redirect:/cart";
     }
 
     @GetMapping("/cart/clear")
-    public String clearProductsInCart(){
+    public String clearProductsInCart() {
         cartService.clearItems();
         return "redirect:/cart";
     }
 
     @GetMapping("/cart/checkout")
-    public String cartCheckout(){
+    public String cartCheckout() {
         return "redirect:/order";
     }
 
     @GetMapping("/cart/getOrders/{id}")
-    public String getOrders(@PathVariable("id") long id){
+    public String getOrders(@PathVariable("id") long id) {
         cartService.deleteItemByCartId(id);
         return "redirect:/cart";
     }

@@ -10,8 +10,12 @@ import java.util.List;
 public interface ContactUsService{
 
     ContactUs getContactUs(Long id);
+
     ContactUs getContactUs(String email);
+
     ContactUs createContact(ContactUs contactUs);
+
     List<ContactUs> getContactus();
+
     boolean deleteContactUsById(Long id);
 }

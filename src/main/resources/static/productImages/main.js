@@ -1,5 +1,4 @@
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     //var elems = document.querySelectorAll('select');
     //var instances = M.FormSelect.init(elems, options);
     // Your web app's Firebase configuration
@@ -18,40 +17,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
-        var files = [];
-        let filename = "";
+    var files = [];
+    let filename = "";
 
-        const imageUpload = document.querySelector("#uploadImage");
-        const photo = document.querySelector("#itemPhoto");
-        photo.addEventListener("change", getFileUrl);
+    const imageUpload = document.querySelector("#uploadImage");
+    const photo = document.querySelector("#itemPhoto");
+    photo.addEventListener("change", getFileUrl);
 
-        imageUpload.addEventListener("click", uploadImage);
+    imageUpload.addEventListener("click", uploadImage);
 
-        function uploadImage(e) {
-            e.preventDefault();
-            if(files.length != 0) {
-                filename = files[0].name;
-                var storage = firebase.storage().ref(filename);
-                //update progress bar
-                var upload = storage.put(files[0]);
-                upload.on(
-                    "state_changed",
-                    function progress(snapshot) {
-                        var percentage =
-                            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        document.getElementById("progressBar").value = percentage;
-                    },
-                    (error) => console.log("An error occures" + error),
-                    () => getImageUrl()
-                );
-            }
+    function uploadImage(e) {
+        e.preventDefault();
+        if (files.length != 0) {
+            filename = files[0].name;
+            var storage = firebase.storage().ref(filename);
+            //update progress bar
+            var upload = storage.put(files[0]);
+            upload.on(
+                "state_changed",
+                function progress(snapshot) {
+                    var percentage =
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    document.getElementById("progressBar").value = percentage;
+                },
+                (error) => console.log("An error occures" + error),
+                () => getImageUrl()
+            );
         }
+    }
 
 
-        function getFileUrl(e) {
-            files.length = 0;
-            files = e.target.files;
-        }
+    function getFileUrl(e) {
+        files.length = 0;
+        files = e.target.files;
+    }
 
 
     function getImageUrl() {
@@ -68,9 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
 // Or with jQuery
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('select').formSelect();
 });
