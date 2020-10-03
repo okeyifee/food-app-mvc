@@ -19,7 +19,9 @@ public class UserController{
 
     UserService userService;
 
-    public UserController(UserService userService) { this.userService = userService; }
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/user")
     public String getUsers(Model model, HttpSession session) {
@@ -40,13 +42,13 @@ public class UserController{
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") long id){
+    public String deleteUser(@PathVariable("id") long id) {
         userService.deleteUserById(id);
         return "redirect:/user";
     }
 
     @GetMapping("/edit/{id}")
-    public String editUsers(@PathVariable ("id") long id, Model model){
+    public String editUsers(@PathVariable("id") long id, Model model) {
         model.addAttribute("user", userService.getUser(id));
         userService.deleteUserById(id);
         return "editUser";

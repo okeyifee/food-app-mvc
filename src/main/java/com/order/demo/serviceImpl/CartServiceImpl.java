@@ -15,7 +15,6 @@ import java.util.List;
 public class CartServiceImpl implements CartService{
 
 
-
     @Autowired
     CartRepository cartRepository;
 
@@ -60,7 +59,7 @@ public class CartServiceImpl implements CartService{
     public boolean findItem(Long id) {
         System.out.println("hello world");
         Cart itemcheck = cartRepository.findById(id).orElse(null);
-        if (itemcheck == null){
+        if (itemcheck == null) {
             return false;
         }
 

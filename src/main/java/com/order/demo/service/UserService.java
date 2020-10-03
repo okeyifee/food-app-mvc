@@ -8,14 +8,22 @@ import java.util.Optional;
 
 public interface UserService{
     User getUser(Long id);
+
     User getUser(String email);
-    User createUser (User user);
-    List<User> getUsers ();
-    User editUser (User user);
-    boolean deleteUserById (Long id);
+
+    User createUser(User user);
+
+    List<User> getUsers();
+
+    User editUser(User user);
+
+    boolean deleteUserById(Long id);
+
     boolean deleteAll();
+
     User save(User user);
 
     Optional<User> findByEmail(String email);
-    boolean findByPassword(String email,String password);
+
+    boolean findByPassword(String email, String password);
 }

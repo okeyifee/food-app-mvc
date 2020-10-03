@@ -18,8 +18,8 @@ import java.util.Optional;
 @RequestMapping("/items")
 public class ItemController{
 
-        ItemService itemService;
-        RestaurantService restaurantService;
+    ItemService itemService;
+    RestaurantService restaurantService;
 
     public ItemController(ItemService itemService, RestaurantService restaurantService) {
         this.itemService = itemService;
@@ -45,7 +45,7 @@ public class ItemController{
     }
 
     @GetMapping("/additem/{id}")
-    public String addItem(@PathVariable ("id") long id,Model model, HttpSession session) {
+    public String addItem(@PathVariable("id") long id, Model model, HttpSession session) {
         session.setAttribute("id", id);
         model.addAttribute("item", new Item());
         return "addItem";
@@ -53,7 +53,7 @@ public class ItemController{
 
 
     @PostMapping("/additem")
-    public String addItem( @Valid Item item, HttpSession session) {
+    public String addItem(@Valid Item item, HttpSession session) {
         System.out.println("hello...........");
         User user = (User) session.getAttribute("user");
         if (user == null) {
@@ -62,10 +62,10 @@ public class ItemController{
         Long id = (Long) session.getAttribute("id");
         Restaurant restaurant = restaurantService.findRestaurantById(id);
         item.setRestaurant(restaurant);
-        String name =  item.getItemName();
-        String info =  item.getItemInfo();
-        double price =  item.getItemPrice();
-        Item newItem =  new Item();
+        String name = item.getItemName();
+        String info = item.getItemInfo();
+        double price = item.getItemPrice();
+        Item newItem = new Item();
 
         newItem.setId(0);
         newItem.setItemInfo(info);
@@ -85,20 +85,20 @@ public class ItemController{
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteItem(@PathVariable("id") long id){
+    public String deleteItem(@PathVariable("id") long id) {
         itemService.deleteItemById(id);
         return "redirect:/items/";
     }
 
     @GetMapping("/edit/{id}")
-    public String editItems(@PathVariable ("id") long id, Model model){
+    public String editItems(@PathVariable("id") long id, Model model) {
         model.addAttribute("item", itemService.findItemById(id));
         itemService.deleteItemById(id);
         return "editItem";
     }
 
     @PostMapping("/editItem")
-    public String editItem( Item item) {
+    public String editItem(Item item) {
         itemService.save(item);
         return "redirect:/items/";
     }

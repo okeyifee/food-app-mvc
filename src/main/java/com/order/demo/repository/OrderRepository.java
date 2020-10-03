@@ -12,8 +12,11 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long>{
 
     Order deleteOrderById(Long id);
+
     Order getOrdersByUserId(Long id);
+
     List<Order> getOrderById(Long id);
+
     Order findByCartsId(Long id);
 
 }

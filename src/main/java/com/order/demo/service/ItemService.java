@@ -9,12 +9,18 @@ import java.util.List;
 @Service
 public interface ItemService{
 
-    Item createItem (Item item);
+    Item createItem(Item item);
+
     Item findItemById(Long id);
-    Iterable<Restaurant> getItemByName (String name);
-    Restaurant editItem (Item item);
-    List<Item> getItems ();
-    boolean deleteItemById (Long id);
+
+    Iterable<Restaurant> getItemByName(String name);
+
+    Restaurant editItem(Item item);
+
+    List<Item> getItems();
+
+    boolean deleteItemById(Long id);
+
     Item save(Item item);
 
 }

@@ -22,7 +22,7 @@ public class Restaurant{
     @ManyToOne
     private User user;
 
-    @OneToMany(mappedBy = "restaurant",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
     private List<Item> items;
 
 }

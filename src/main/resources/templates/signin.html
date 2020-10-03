@@ -14,24 +14,25 @@
             background-repeat: no-repeat;
             background-size: 100% 100vh;
         }
-        .container{
-            background-color: rgba(0,0,0,0.3);
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
 <nav style="height: 74px;">
     <div class="nav-wrapper" style="background-color: white">
-       <div class="container">
-           <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="60"></a>
-           <ul id="nav-mobile" class="right hide-on-med-and-down">
-               <li><a th:href="@{/auth/about}" style="color: #1D1D1D">About us</a></li>
-               <li><a th:href="@{/contactus}" style="color: #1D1D1D">Customer care</a></li>
-               <li><a th:href="@{/auth/login}" style="color: #1D1D1D">login</a></li>
+        <div class="container">
+            <a href="#" class="brand-logo"><img th:src="@{/productImages/logo.png}" height="60"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a th:href="@{/auth/about}" style="color: #1D1D1D">About us</a></li>
+                <li><a th:href="@{/contactus}" style="color: #1D1D1D">Customer care</a></li>
+                <li><a th:href="@{/auth/login}" style="color: #1D1D1D">login</a></li>
 
-               <li><a href="collapsible.html"></a></li>
-           </ul>
-       </div>
+                <li><a href="collapsible.html"></a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -41,7 +42,7 @@
     <div th:if="${invalid != null}">
         <p style="color: tomato" th:text="${invalid}"></p>
     </div>
-    <hr />
+    <hr/>
     <div class="row">
         <form class="col s12" style="margin-top: 2rem" method="post" th:action="@{/auth/login}" th:object="${user}">
             <div class="row">
@@ -64,6 +65,6 @@
 </div>
 
 <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

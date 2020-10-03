@@ -69,20 +69,20 @@ public class RestaurantController{
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteRestaurant(@PathVariable("id") long id){
+    public String deleteRestaurant(@PathVariable("id") long id) {
         restaurantService.deleteRestaurantById(id);
         return "redirect:/restaurant/";
     }
 
     @GetMapping("/edit/{id}")
-    public String editRestaurants(@PathVariable ("id") long id, Model model){
+    public String editRestaurants(@PathVariable("id") long id, Model model) {
         model.addAttribute("restaurant", restaurantService.findRestaurantById(id));
         restaurantService.deleteRestaurantById(id);
         return "editRestaurant";
     }
 
     @PostMapping("/editRestaurant")
-    public String editRestaurant( Restaurant restaurant) {
+    public String editRestaurant(Restaurant restaurant) {
         restaurantService.save(restaurant);
         return "redirect:/restaurant/";
     }

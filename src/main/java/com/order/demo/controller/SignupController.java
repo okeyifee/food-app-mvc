@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @Slf4j
 @Controller
 @RequestMapping(value = "auth")
-public class SignupController {
+public class SignupController{
     UserService userService;
 
     public SignupController(UserService userService) {
@@ -30,7 +30,7 @@ public class SignupController {
     }
 
     @PostMapping("/signup")
-    public String signup(@Valid User user, BindingResult bindingResult,Model model) {
+    public String signup(@Valid User user, BindingResult bindingResult, Model model) {
         if (userService.findByEmail(user.getEmail()).isPresent()) {
             bindingResult.rejectValue("email", "error.user", "There is already a user registered with the email provided");
         }
@@ -40,8 +40,8 @@ public class SignupController {
             log.info("User Already exist");
             return "redirect:/auth/signup";
         } else {
-        userService.createUser(user);
-        return "signin";
+            userService.createUser(user);
+            return "signin";
         }
     }
 }

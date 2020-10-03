@@ -17,10 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 @Slf4j
 @Controller
 @RequestMapping("/auth")
-public class SigninController {
+public class SigninController{
     private UserService userService;
     private ItemService itemService;
     private RestaurantService restaurantService;
@@ -40,12 +41,12 @@ public class SigninController {
     }
 
     @PostMapping("/login")
-    public String login (HttpSession session, @Valid User user, Model model, BindingResult bindingResult) {
+    public String login(HttpSession session, @Valid User user, Model model, BindingResult bindingResult) {
         User gottenUser = userService.getUser(user.getEmail());
         String a = user.getEmail();
-        String b= user.getPassword();
+        String b = user.getPassword();
 
-        if (!userService.findByEmail(user.getEmail()).isPresent() || userService.findByPassword(a,b) != true) {
+        if (!userService.findByEmail(user.getEmail()).isPresent() || userService.findByPassword(a, b) != true) {
             bindingResult.rejectValue("email", "error.user", "Email/password does not exist");
         }
 
@@ -72,12 +73,12 @@ public class SigninController {
     }
 
     @GetMapping("/about")
-    public String aboutus(){
+    public String aboutus() {
         return "aboutus";
     }
 
     @GetMapping("/display")
-    public String display(Model model){
+    public String display(Model model) {
         model.addAttribute("items", itemService.getItems());
         return "landing";
     }

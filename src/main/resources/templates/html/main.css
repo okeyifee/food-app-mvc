@@ -417,114 +417,147 @@ a {
         padding: 0 8px;
         box-sizing: border-box
     }
+
     .col-md-1 {
         flex-basis: 8.3333%
     }
+
     .col-md-2 {
         flex-basis: 16.6667%
     }
+
     .col-md-3 {
         flex-basis: 24.9999%
     }
+
     .col-md-4 {
         flex-basis: 33.3334%
     }
+
     .col-md-5 {
         flex-basis: 41.6665%
     }
+
     .col-md-6 {
         flex-basis: 49.9998%
     }
+
     .col-md-7 {
         flex-basis: 58.3331%
     }
+
     .col-md-8 {
         flex-basis: 66.6664%
     }
+
     .col-md-9 {
         flex-basis: 74.9997%
     }
+
     .col-md-10 {
         flex-basis: 83.3333%
     }
+
     .col-md-11 {
         flex-basis: 91.6663%
     }
+
     .col-md-12 {
         flex-basis: 100%
     }
+
     .container {
         width: 800px
     }
+
     .mobile-only {
         display: none
     }
+
     .desktop-only {
         display: none
     }
+
     .tablet-only,
     .header__basket {
         display: block
     }
+
     .to-btn {
         width: 215px
     }
+
     .options {
         padding: 15px 0
     }
+
     .header__basket {
         padding: 0 16px;
         position: relative;
         top: 5px
     }
+
     /* restaurant page */
     .restaurant {
         height: 364px;
     }
+
     .restaurant-card {
         top: 80px;
         text-align: left;
         padding: 38px 48px 48px;
     }
+
     .restaurant-card__name {
         font-size: 2.3em;
         font-weight: 400
     }
+
     .restaurant-card__delivery-time {
         display: inline;
         text-align: center
     }
+
     .restaurant-card__info {
         float: left
     }
+
     .restaurant-card__delivery {
         float: right
     }
+
     .food-nav {
         display: block
     }
+
     .foods-list__type {
         text-align: left
     }
+
     .foods-list__item {
         border: 1px solid #e0e0e0;
         padding: 0;
         margin-bottom: 32px
     }
+
     .foods-list__img {
         width: 200px
     }
+
     .foods-list__info {
         margin: 0;
         padding: 16px 0
     }
+
     .foods-list__info p {
         max-width: 500px;
         padding-left: 24px
     }
+
     .foods-list__name {
         font-size: 1.1em
     }
+
     .foods-list__description {
         padding-bottom: 80px
     }
@@ -546,56 +579,73 @@ a {
         padding: 0 8px;
         box-sizing: border-box
     }
+
     .col-lg-1 {
         flex-basis: 8.3333%
     }
+
     .col-lg-2 {
         flex-basis: 16.6667%
     }
+
     .col-lg-3 {
         flex-basis: 24.9999%
     }
+
     .col-lg-4 {
         flex-basis: 33.3334%
     }
+
     .col-lg-5 {
         flex-basis: 41.6665%
     }
+
     .col-lg-6 {
         flex-basis: 49.9998%
     }
+
     .col-lg-7 {
         flex-basis: 58.3331%
     }
+
     .col-lg-8 {
         flex-basis: 66.6664%
     }
+
     .col-lg-9 {
         flex-basis: 74.9997%
     }
+
     .col-lg-10 {
         flex-basis: 83.3333%
     }
+
     .col-lg-11 {
         flex-basis: 91.6663%
     }
+
     .col-lg-12 {
         flex-basis: 100%
     }
+
     .container {
         width: 964px
     }
+
     .footer__language select {
         width: 75%
     }
+
     /* restaurant page */
     .foods-list__info p {
         max-width: 240px;
         padding-left: 16px
     }
+
     .foods-list__img {
         width: 170px
     }
+
     .foods-list__description {
         padding-bottom: 51px
     }

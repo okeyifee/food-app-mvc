@@ -11,15 +11,24 @@ import java.util.Optional;
 public interface OrderService{
 
     void removeOrder(Order order);
+
     void removeOrder(Long id);
-//  Optional<Order> getOrderByOrderId(Long id);
+
+    //  Optional<Order> getOrderByOrderId(Long id);
     Order addOrder(Order order);
+
     boolean clearOrders();
+
     Order deleteOrderById(Long id);
+
     Order getOrdersByUserId(Long id);
+
     List<Order> OrdersInDatabase();
+
     boolean findOrder(Long id);
+
     Order findOrderByOrderId(Long id);
+
     Order findOrderByCartid(Long cartId);
 }
 

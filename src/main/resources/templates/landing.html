@@ -6,25 +6,26 @@
     <meta charset="UTF-8">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
+
 
     <title>Sign up</title>
 
     <style>
-        .restaurant-name{
+        .restaurant-name {
             margin-top: 0;
         }
-        .action-list{
+
+        .action-list {
             display: flex;
             justify-content: space-between;
             font-size: 12px;
         }
 
-        .card .card-action, .card .card-content{
+        .card .card-action, .card .card-content {
             padding: 6px;
         }
 
-        .card{
+        .card {
             border: none;
         }
 
@@ -110,24 +111,23 @@
         }
 
 
-
     </style>
 </head>
 <body>
 <nav style="height: 70px;">
     <div class="nav-wrapper">
         <div class="container">
-            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="65"></a>
+            <a href="#" class="brand-logo"><img th:src="@{/productImages/logo.png}" height="65"></a>
             <ul>
                 <li><a href="collapsible.html">Search restaurants</a></li>
                 <li style="padding-right: 50px; float: right"><a href="/auth/login">logout</a></li>
 
-                <li style="padding-right: 50px; float: right"><a th:href="@{/cart}"  class="notification">
+                <li style="padding-right: 50px; float: right"><a th:href="@{/cart}" class="notification">
                     <span>Cart</span>
                     <span class="badge">3</span>
                 </a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" >About us</a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" >Customer care</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}">About us</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}">Customer care</a></li>
             </ul>
 
         </div>
@@ -144,13 +144,13 @@
 <div class="container-fluid" style="margin-top: 2rem">
 
     <div class="row" style="margin: 0">
-<!--        <div>-->
+        <!--        <div>-->
         <div th:each="item : ${items}">
 
             <div class="col s12 m6 l3">
                 <div class="card" style="min-height: 300px;">
                     <div class="card-content dark-text">
-                        <p > <img th:src="${item.imageUrl}" style="max-width: 100%; "/></p>
+                        <p><img th:src="${item.imageUrl}" style="max-width: 100%; "/></p>
                         <p th:text="${item.itemName}"></p>
                         <p th:text="${item.itemInfo}"></p>
                         <p th:text="${item.itemPrice}"></p>
@@ -158,8 +158,8 @@
                     <div class="card-action">
                         <p class="restaurant-name" th:text="${item.restaurant.name}"></p>
                         <div class="action-list" id="nav-mobile">
-                            <p><a th:href="@{/cart/add/{id}(id=${item.id})}" >Add to cart</a></p>
-                            <p><a th:href="@{/contactus}" >Review item</a></p>
+                            <p><a th:href="@{/cart/add/{id}(id=${item.id})}">Add to cart</a></p>
+                            <p><a th:href="@{/contactus}">Review item</a></p>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
 <nav style="height: 74px;">
     <div class="nav-wrapper" style="background-color: white">
         <div class="container">
-            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="60"></a>
+            <a href="#" class="brand-logo"><img th:src="@{/productImages/logo.png}" height="60"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a th:href="@{/auth/about}" style="color: #1D1D1D">About us</a></li>
                 <li><a th:href="@{/contactus}" style="color: #1D1D1D">Customer care</a></li>
@@ -24,9 +24,10 @@
 
 <div class="container" style="margin-top: 5rem; color: Blue; padding: 10px 20px 10px 20px">
     <h4>EDIT RESTAURANT</h4>
-    <hr />
+    <hr/>
     <div class="row">
-        <form class="col s12" style="margin-top: 2rem; color: white" method="post" th:action="@{/restaurant/editRestaurant}" th:object="${restaurant}">
+        <form class="col s12" style="margin-top: 2rem; color: white" method="post"
+              th:action="@{/restaurant/editRestaurant}" th:object="${restaurant}">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="name" type="text" class="validate" th:field="*{name}">
@@ -46,7 +47,8 @@
                 </div>
             </div>
 
-            <button class="btn waves-effect waves-light pink accent-3" type="submit" name="action" style="background-color: #ef8533f8; float: right">Submit
+            <button class="btn waves-effect waves-light pink accent-3" type="submit" name="action"
+                    style="background-color: #ef8533f8; float: right">Submit
                 <!--                <i class="material-icons right"></i>-->
             </button>
         </form>
@@ -55,7 +57,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script> th:src="@{main.js}"</script>
+<script> th:src = "@{main.js}"</script>
 
 </body>
 </html>

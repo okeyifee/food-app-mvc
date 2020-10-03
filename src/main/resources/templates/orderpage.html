@@ -8,14 +8,14 @@
 <body>
 
 <nav style="height: 74px;">
-    <div class="nav-wrapper" >
-        <div  style="margin: 0; padding: 10px 0px 10px 20px" >
-            <a href="#" class="brand-logo"><img  th:src="@{/productImages/logo.png}"  height="50"></a>
+    <div class="nav-wrapper">
+        <div style="margin: 0; padding: 10px 0px 10px 20px">
+            <a href="#" class="brand-logo"><img th:src="@{/productImages/logo.png}" height="50"></a>
             <ul>
                 <!--                <li style="padding-left: 20px"><a href="#">Welcome, Admin </a></li>-->
                 <li style="padding-right: 50px; float: right;"><a href="/auth/login">logout</a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}" >About us</a></li>
-                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}" >Customer care</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/auth/about}">About us</a></li>
+                <li style="padding-right: 50px; float: right"><a th:href="@{/contactus}">Customer care</a></li>
 
             </ul>
         </div>
@@ -28,9 +28,10 @@
 <h6 style="padding-left: 15px">Your order has been created with the following information: </h6>
 <h6 style="padding-left: 15px">Order Status: Active</h6>
 <h6 style="padding-left: 15px; ">Order id: 1</h6>
-<tr th:each="user: ${users}" >
+<tr th:each="user: ${users}">
     <th:blockquote>
-        <p th:text="${'Address:' + ' ' + user.address}" style="margin-left: 16px; font-size: large; margin-top: 5px; margin-bottom: -7px;"></p>
+        <p th:text="${'Address:' + ' ' + user.address}"
+           style="margin-left: 16px; font-size: large; margin-top: 5px; margin-bottom: -7px;"></p>
     </th:blockquote>
 </tr>
 <!--<tr th:each="order: ${orders}" >-->
@@ -44,33 +45,33 @@
 <table id="CART INFORMATION" style="margin-left: 23px">
     <tr>
         <th> ITEM NAME</th>
-        <th> QUANTITY ORDERED </th>
-        <th> UNIT PRICE </th>
-        <th> SUBTOTAL </th>
+        <th> QUANTITY ORDERED</th>
+        <th> UNIT PRICE</th>
+        <th> SUBTOTAL</th>
     </tr>
-<!--    <span>th:total=${0} </span>-->
+    <!--    <span>th:total=${0} </span>-->
 
 
     <tr th:each="cart: ${carts}">
-<!--    <tr th:with=" variable = 0,  total=${cart.itemPrice * cart.quantity}, secondPer= ${variable + total}">-->
-<!--    <tr th:each="cart: ${carts}">-->
+        <!--    <tr th:with=" variable = 0,  total=${cart.itemPrice * cart.quantity}, secondPer= ${variable + total}">-->
+        <!--    <tr th:each="cart: ${carts}">-->
         <td th:text="${cart.itemname}"></td>
         <td th:text="${cart.quantity}"></td>
         <td th:text="${cart.itemPrice}"></td>
         <td th:text="${cart.itemPrice * cart.quantity}"></td>
-<!--        <td th:text="${secondper}"></td>-->
-<!--    </tr>-->
+        <!--        <td th:text="${secondper}"></td>-->
+        <!--    </tr>-->
     </tr>
 
-<!--    div th:with="firstPer=${persons[0]}">-->
-<!--    <p>-->
-<!--        The name of the first person is <span th:text="${firstPer.name}">Julius Caesar</span>.-->
-<!--    </p>-->
-<!--    </div>-->
+    <!--    div th:with="firstPer=${persons[0]}">-->
+    <!--    <p>-->
+    <!--        The name of the first person is <span th:text="${firstPer.name}">Julius Caesar</span>.-->
+    <!--    </p>-->
+    <!--    </div>-->
 
-<!--    <tr th:each="order: ${orders}">-->
-<!--        <td th:text="${order.Total}" />-->
-<!--    </tr>-->
+    <!--    <tr th:each="order: ${orders}">-->
+    <!--        <td th:text="${order.Total}" />-->
+    <!--    </tr>-->
 
 </table>
 <br>
@@ -78,7 +79,7 @@
 <p style="padding-left: 15px">click on proceed to payment, to complete order...</p>
 
 <div style="float: right; padding-right: 650px;">
-    <button style="margin: 0 30px 0 30px"> <a style="color: blue" href="#">Proceed to Payment</a></button>
+    <button style="margin: 0 30px 0 30px"><a style="color: blue" href="#">Proceed to Payment</a></button>
 </div>
 </body>
 </html>
